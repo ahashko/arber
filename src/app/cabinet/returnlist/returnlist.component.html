@@ -1,0 +1,35 @@
+<div class="container-fluid">
+
+  <div class="order-list-table">
+
+    <div class="row">
+      <div class=" col s12 m2 l2 cabinetMenuBlock">
+        <app-cabmenu></app-cabmenu>
+      </div>
+
+      <div class="col s12 m10 l10 returnOrder">
+        <h4 class="mTitle">СПИСОК ПОВЕРНЕНЬ</h4>
+
+        <table class="table table-striped">
+          <thead>
+          <tr class="row-name" >
+            <th>№ Заявки</th>
+            <th class="desc">Дата створення</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let ret of returnList" class="row-content">
+            <!--[routerLink]="'/order-detale-item/'+ ret.id" -->
+            <td class="desc">№{{ret.id}}</td>
+            <td class="desc">{{ret.returnDate}}</td>
+            <td class="linkDetale" [routerLink]="'/order-detale-item/'+ ret.id"><span class="label label-default ">ДОКЛАДНІШЕ</span></td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+</div>

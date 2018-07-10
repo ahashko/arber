@@ -1,0 +1,161 @@
+<div id="topmainmenu" class="wsmenucontainer" [class.wsoffcanvasopener]="menuOpen">
+    <div class="overlapblackbg"></div>
+    <div class="wsmobileheader">
+        <!--<a id="wsnavtoggle" class="animated-arrow"><span></span></a> -->
+        <a (click)="onClick($event)" class="animated-arrow"><span></span></a>
+
+       <!-- <a class="animated-arrow msearch">
+            <i class="fa fa-shopping-bag fa-lg" aria-hidden="true"></i>
+        </a> -->
+
+        <a routerLink="/" class="smallogo"><img src="../../assets/images/brand/logo.png"  alt="" /></a>
+        <!-- <a class="callusicon" href="tel:123456789"><span class="fa fa-phone"></span></a> -->
+        <!--
+               <div id="myModal" class="modal fade in">
+                   <div class="modal-dialog">
+                       <div class="modal-content">
+
+                           <div class="modal-header">
+                               <a class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></a>
+                           </div>
+                           <div class="modal-body">
+                               <app-cart></app-cart>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+        -->
+        <a (click)="openDialog()" class="callusicon mobSerchRig">
+            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+        </a>
+
+        <a (click)="openCart()" class="callusicon">
+            <i class="fa fa-shopping-bag fa-lg" aria-hidden="true"></i>
+        </a>
+
+    </div>
+
+    <div class="header">
+        <!--Main Menu HTML Code-->
+        <nav class="wsmenu">
+            <ul class="mobile-sub wsmenu-list">
+
+                <li class="menu-elements"><a routerLink="/" title="Logo Arber"><img class="logo-m" src="../../assets/images/brand/logo_arberp.png"  alt="" /></a></li>
+
+               <!--<div class="search-mobile">
+                    <div class="input-group searchTopBlock">
+                        <input [value]="searchText" type="text" (keyup)="search($event)" (input)="searchText = $event.target.value" class="form-control mobserch" placeholder="ПОШУК...">
+                    </div>
+                </div>-->
+
+                <li class="topLiMainMenu">
+                    <a class="" [class.active]="actmenu == 'news'" (click)="onClickMainMenu('news')">НОВИНИ
+                        <span class="pluspasiv"></span>
+                    </a>
+                    <app-news class="megamenu" [class.toggleHeight]="menuState.news" [class.active]="actmenu == 'news'" [id]="1"> </app-news>
+                </li>
+
+                <li class="topLiMainMenu"><a class="" [class.active]="actmenu == 'catalog'" (click)="onClickMainMenu('catalog')">КАТАЛОГ<span class="pluspasiv"></span></a>
+                    <app-catalog  class="megamenu" [class.toggleHeight]="menuState.catalog" [class.active]="actmenu == 'catalog'" [id]="2"></app-catalog>
+                </li>
+
+                <li class="topLiMainMenu"><a class="" [class.active]="actmenu == 'shops'" (click)="onClickMainMenu('shops')">МАГАЗИНИ<span class="pluspasiv"></span></a>
+                    <app-shops class="megamenu" [class.toggleHeight]="menuState.shops" [class.active]="actmenu == 'shops'" [id]="3"></app-shops>
+                </li>
+
+                <!--[class.active]="rowdown"-->
+
+                <li class="topLiMainMenu"><a class="" [class.active]="actmenu == 'service'" (click)="onClickMainMenu('service')">ПОСЛУГИ<span class="pluspasiv"></span></a>
+                    <app-services class="megamenu" [class.toggleHeight]="menuState.service" [class.active]="actmenu == 'service'" [id]="4"></app-services>
+                </li>
+
+                <li class="right-panel"><a (click)="openCart()"><i class="fa fa-shopping-bag fa-lg" aria-hidden="true"></i>
+                    <!-- <em class="roundpoint">{{productCount}}</em> -->
+                </a>
+                    <!--
+                    <div id="megamenuCart" class="megamenu halfdiv"><app-cart></app-cart></div>
+                    -->
+                </li>
+
+
+
+                <li class="right-panel"><a (click)="loginClick()"><i class="fa fa-user-o fa-lg" [class.auth]="isAuthenticated()" aria-hidden="true"></i></a></li>
+                <li class="right-panel"><a (click)="onClickMainMenu('search')"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a>
+                    <div class="megamenu" [class.toggleHeight]="menuState.search" [class.active]="actmenu == 'search'">
+                        <!-- <form class="topmenusearch">
+                             <input [value]="searchText" type="text" (keyup)="search($event)" (input)="searchText = $event.target.value" placeholder="Що ви шукаєте...">
+                             <button (click) = "SearchButtonClick()" class="btnsearch">ПОШУК</button>
+                         </form> -->
+                        <div class="btn-toolbar form-inline" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="input-group searchTopBlock">
+                                <input [value]="searchText" type="text" autofocus (keyup)="search($event)" (input)="searchText = $event.target.value" class="form-control" placeholder="Що ви шукаєте...">
+                                <span class="input-group-btn">
+                                   <!-- <button  (click)="SearchButtonClick()" class="btn btn-default" type="button">ВПЕРЕД!</button> -->
+                                 <a class="closeSearch" (click)="onClickMainMenu('search')"><img src="../../assets/images/brand/close_grey.png" /></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+
+
+                <li class="right-panel"><a (click)="onClickMainMenu('phone')"><i class="fa fa-phone fa-lg phoneicon" aria-hidden="true"></i></a>
+                    <div class="megamenu" [class.toggleHeight]="menuState.phone" [class.active]="actmenu == 'phone'">
+                        <div class="row">
+                            <div class="col s4 l4 m4">
+                                <h5>Номера телефонів</h5>
+                        <mat-list role="list">
+                            <mat-list-item role="listitem">0 800-212-214 </mat-list-item>
+                            <mat-list-item role="listitem">(044) 333-44-43</mat-list-item>
+                            <mat-list-item role="listitem">(099) 97-83-544</mat-list-item>
+                            <mat-list-item role="listitem">(068) 34-38-628</mat-list-item>
+                            <mat-list-item role="listitem">(093) 170-22-23</mat-list-item>
+                        </mat-list>
+                            </div>
+
+                            <div class="col s4 l4 m4 time">
+                                <h5>Час роботи</h5>
+                                <mat-list role="list">
+                                    <mat-list-item role="listitem">Пн-Пт 10:00-19:00</mat-list-item>
+                                    <mat-list-item role="listitem">Сб-Нд 11:00-19:00</mat-list-item>
+                                </mat-list>
+                            </div>
+
+                            <!--<div class="col s4 l4 m4">
+                                <h5>Замовити дзвінок</h5>
+                                <mat-form-field>
+                                <textarea matInput placeholder="Ваш номер телефону" matTextareaAutosize matAutosizeMinRows="2"
+                                 matAutosizeMaxRows="5"></textarea>
+                                </mat-form-field>
+                                <button mat-button (click)="closePhone()" class="callback">ПЕРЕДЗВОНІТЬ МЕНІ</button>
+                            </div>-->
+                        </div>
+
+
+                    </div>
+                </li>
+
+              <!--  <li class="right-panel phoneheader">
+
+                    <mat-form-field>
+                        <mat-select [(value)]="selected">
+                            <mat-option value="option1">0 800-212-214</mat-option>
+                            <mat-option value="option2">(044) 333-44-43</mat-option>
+                            <mat-option value="option3">(099) 97-83-544</mat-option>
+                            <mat-option value="option4">(068) 34-38-628</mat-option>
+                            <mat-option value="option5">(093) 170-22-23</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </li> -->
+
+                <div class="mobileEnter">
+                    <li><a href="/Login-Show" class="mobEnter"><i class="fa fa-user-o" aria-hidden="true"></i> ВХІД</a></li>
+                </div>
+            </ul>
+        </nav>
+        <!--Menu HTML Code-->
+    </div>
+</div>

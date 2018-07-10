@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="order-list-table">
+        <div class="row">
+            <div class=" col s12 m2 l2 cabinetMenuBlock">
+                <app-cabmenu></app-cabmenu>
+            </div>
+            <div class="col s12 m10 l10 returnOrder">
+                <h4 class="mTitle">Повернення <span class="gold">№{{id}}</span></h4>
+
+
+
+                <div *ngFor="let ret of returnList">
+                    <ul *ngIf="ret.id == id">
+                        <li><span>Номер замовлення:</span> {{ret.saleOrder.id}}</li>
+                        <li><span>Дата створення заявки на повернення:</span> {{ret.returnDate}}</li>
+                        <li><span>Номер картки:</span> {{ret.buyer}}</li>
+                        <li><span>Номер ТТН:</span> {{ret.trackNumber}}</li>
+                        <li><span>Серія №паспорту:</span> {{ret.identity}}</li>
+                       <!-- <li>Причина повернення: {{ret.reason}}</li> -->
+                        <li><span>Сума повернення:</span> {{ret.total}} ГРН</li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+</div>

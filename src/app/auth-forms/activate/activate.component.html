@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div class="activate-forms">
+        <div class="row">
+            <div class="col s12 l12 m12">
+                <h3 *ngIf="activated">ВІТАЄМО! ВАШ ОБЛІКОВИЙ ЗАПИС АКТИВОВАНО</h3>
+                <h5>Тепер ви можете авторизуватися в системі.</h5>
+                <p routerLink="/Login-Show">АВТОРИЗУВАТИСЬ</p>
+                <small class="error" *ngIf="error">Помилка активації !</small>
+            </div>
+        </div>
+    </div>
+</div>

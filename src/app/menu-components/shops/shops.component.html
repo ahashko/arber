@@ -1,0 +1,22 @@
+
+  <div class="twoblock">
+    <h3 class="title">Міста</h3>
+    <div class="fluid-width-video-wrapper">
+
+        <div class="cityList">
+            <div class="row">
+                <div *ngFor="let city of cities" class="col s12 m4 l4 cityBlocks">
+                    <a class="menuCityLink" (click)="onClick($event)" routerLink="/stores/{{city.split(' ').join('-')}}">
+                        <div class="topalspan"><span>{{city}}</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div *ngFor="let htmlBlock of htmlBlocks" class="megacolimage mobVersion">
+    <h3 class="title">{{htmlBlock.title}}</h3>
+      <div class="fluid-width-video-wrapper"><a class="linkHtmlBan" href="{{htmlBlock.link}}"><img class="htmlBanImg" src="{{htmlBlock.image}}" alt=""/></a>
+          <h5>{{htmlBlock.name}}</h5>
+      </div>
+  </div>

@@ -1,0 +1,31 @@
+
+
+.title{
+  color: #183051;
+}
+
+.servisShortDesc{
+  display: inline-flex;
+  overflow: hidden;
+}
+
+a.banservices:hover{
+  background-color: white;
+}
+
+a.banservices::before{
+  height: 0px;
+  color: transparent;
+}
+a.banservices::after{
+  height: 0px;
+  color: transparent;
+}
+
+@media only screen and (max-width: 780px) {
+
+  p.blockdisc{
+    margin-bottom: 1px;
+  }
+
+}

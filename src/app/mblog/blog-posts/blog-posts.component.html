@@ -1,0 +1,17 @@
+<div class="col s12 m8 l8 blogPrev">
+  <div *ngFor="let blogPost of blogPosts" class="list-bloks">
+    <div *ngIf="blogPost.publish == true"  class="col s12 m6 l6 postblok">
+
+      <a routerLink="/blog/{{blogPost.seoDescription}}">
+        <img class="blogpostsImg" src="{{blogPost.imageLink }}"/></a>
+      <h5 class="BlogPostTitle">{{blogPost.title}}</h5>
+      <p class="BlogPostShortDescription">{{blogPost.shortDescription}}</p>
+     <!-- <a class="more" routerLink="/blog/{{blogPost.seoDescription.split(' ').join('-')
+        .toLocaleLowerCase()}}">-->
+
+      <a class="more" routerLink="/blog/{{blogPost.seoDescription}}">
+        Докладніше <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+
+<div class="topMobSearch">
+<input [value]="searchText" type="text" (keyup)="search($event)" (input)="searchText = $event.target.value" class="form-control" placeholder="ПОШУК...">
+</div>
+<a class="closeSearch" (click)="onClickClose()"><img src="../../assets/images/brand/close_grey.png" /></a>
